@@ -1,1 +1,512 @@
-this is a test
+<html>
+
+
+<title>R&D Without the Research</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+
+<style>
+    html {
+        background: #424242;
+        background-image: linear-gradient(270deg, rgb(230, 233, 233) 0%, rgb(216, 221, 221) 100%);
+        -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+        background: #424242;
+        box-shadow: 0 0 2px rgba(0, 0, 0, 0.06);
+        color: white;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+        margin: 0 auto;
+        max-width: 100%;
+        padding: 2em 2em 4em;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: white;
+        font-weight: 600;
+        line-height: 1.3;
+    }
+
+    div {
+
+
+
+        width: 100%;
+
+
+    }
+
+    table {
+
+
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 16px;
+        width: 70%;
+        margin: 0 auto;
+
+
+
+    }
+
+    tr {
+
+
+        width: 100%;
+
+
+
+
+    }
+</style>
+
+
+<body style='text-align: center;'>
+
+    <div id='Overview' style='text-align: center;'>
+
+        <table align='center' style='border-bottom: 2px white !important;display:inline-block;'>
+
+            <tr>
+
+                <td><img style='display:inline;width:100%;' src="Resources/Picture" /></td>
+
+            </tr>
+            <tr>
+
+
+                <td style='text-align: center;'>
+                    <div style='text-align: left !important; width:100% !important'><h4>Welcome to "Research and Development - Without the research".</h4><br/><br/>This tool helps you to understand what government incentives may be available to your business. The rules surrounding the government's R&D incentives can be complex and time consuming just to find, let alone understand.Use this tool to help you find out what you may be entitled to. </div>
+                </td>
+
+
+            </tr>
+
+            <tr>
+
+                <td style=' width=100%; text-align: center;'><br/><br/> <button id='Calculate' onclick='ShowForm()' type="button" class="btn btn-success">Calculate Entitlement</button><br/><br/>
+                </td>
+
+            </tr>
+
+        </table>
+
+    </div>
+
+
+
+    <div id='EntryForm' style='visibility: hidden; text-align: center;'>
+
+        <table align='center' style='display:inline-block;'>
+
+            <tr>
+
+                <td></td>
+
+            </tr>
+            <tr>
+
+                <td>
+                    <h2 style='text-align: center;'>Does your business meet the following criteria:</h2><br/>
+
+                    <ul>
+                        <li><b>Your business is either:</b><br/>
+                            <ul>
+                                <li>Registered under the Companies Act. or;</li>
+                                <li>Registered under the Limited Partnerships Act. or;</li>
+                                <li>A Māori incorporation or trust established under the Te Ture Whenua Māori Act, a trust set up to manage assets as part of a Treaty of Waitangi settlement, a Māori statutory body, or a business controlled by one or more of these entities.</li>
+                            </ul>
+                        </li>
+                        <li>
+                                Your business is not state owned.
+                            </li>
+                        <li>The registered address for your business is located in New Zealand.
+                            </li>
+                        <li>At least one of the directors/partners of the business is a New Zealand tax resident.
+                            </li>
+                        <li><b>Your business is currently, or planning to spend money on research and development.</b>
+                            </li>
+                    </ul>
+
+                    <tr>
+                    <td style=' width=100%; text-align: center;'><br/><br/>
+                        <button id='Calculate' onclick='ShowInputForm()' type="button" class="btn btn-success">Yes</button>&nbsp;&nbsp;<button id='No' onclick='YouDontQualify()' type="button" class="btn btn-success">No</button>
+                        <br/><br/>
+                    </td>
+            </tr>
+
+        </table>
+            
+            </div>
+
+        <div id='DetailInput' style='visibility: hidden; text-align: center;'>
+
+        <table align='center' style='display:inline-block;'>
+
+            <tr>
+
+                <td></td>
+
+            </tr>
+            <tr>
+
+                <td style='text-align: center;'>
+                    <h1><span style='color:#40dc61'>It's looking good</span> - Check your potential entitlement below!</h1>
+                </td>
+
+
+            </tr>
+ <tr>
+
+                <td>
+
+<h4 style='text-align: center;'>How long has your business been spending money on Research and Development:</h2><br/>
+
+      <select class="form-control" id="YearsSelect">
+
+     <option value='0'> Just started </option>
+     <option value='1'> Under Two Years </option>
+     <option value='2'> Over Two Years </option>
+     
+     
+
+
+
+
+</select>    </td>
+
+
+
+            </tr>
+ <tr>
+
+                <td>
+
+<h4 style='text-align: center;'>Has your business received a Research and Development Grant before:</h2><br/>
+
+      <select class="form-control" id="PreviousGrantSelect">
+
+     <option value='0'> No </option>
+     <option value='1'> Yes - Getting Started Grant </option>
+     <option value='2'> Yes - Growth Grant </option>
+     
+     
+
+
+
+
+</select>    </td>
+
+
+
+            </tr>
+
+<tr>
+
+                <td>
+
+<h4 style='text-align: center;'>Has your business spent at least $300,000 per annum and 1.5% of revenue on eligible R&D in each of the last two years; OR plan to exceed these levels over the next year? </h2><br/>
+
+      <select class="form-control" id="GrowthCheck">
+
+     <option valule='0'> No </option>
+     <option valule='1'> Yes </option>
+     
+     
+              
+
+
+
+</select>    </td>
+
+
+
+            </tr>
+
+<tr>
+
+                <td>
+
+<h4 style='text-align: center;'>What is your estimated R&D Expenditure for your project?</h2><br/>
+<input type="currency" class="form-control" id="ExpenditureAmount" aria-describedby="emailHelp" placeholder="Enter Amount">
+    </td>
+
+
+
+            </tr>
+            <tr>
+
+                <td style=' width=100%; text-align: center;'><br/><br/> <button id='Submitter' onclick='Submit()' type="button" class="btn btn-success">Submit</button><br/><br/>
+                </td>
+
+            </tr>
+
+
+        </table>
+
+    </div>
+
+            <div id='YesQualify' style='visibility: hidden; text-align: center;'>
+
+
+
+
+        <table align='center' style='width:100% !important'>
+
+            <tr style='width:100% !important;'>
+
+                <td></td>
+
+            </tr>
+            <tr style='width:100% !important;'>
+
+
+                <td style='width:100% !important;text-align: center;'>
+                    <h1 style='text-align: center !important;'><span style='color:#40dc61'>Congratulations!</span> You Qualify!</h1>
+                </td>
+
+
+            </tr>
+            <tr style='width:100% !important;'>
+
+
+                <td style='width:100% !important;text-align: center;'>
+                    <h3 id='GrantType'></h3><h3 id='GrantAmount'></h3>
+                </td></tr><tr>
+                <td style='width:100% !important;text-align: center;'><span style='width:600px;display: inline-block; text-align: left !important'>
+                    <br/><br/><b>The Getting Started Grant is designed to help you:</b>
+<ul>
+<li>Launch your R&D activities to create a competitive edge</li>
+<li>Navigate through R&D roadblocks – whether its troubleshooting, basic prototyping, project planning, technical feasibility studies, development of an Intellectual Property strategy or determining product specifications and user requirements</li>
+    <li>Access technical expertise to support you in taking your development in the right direction.</li>
+</ul>
+<br/>
+<h4>Find more information on how to apply by clicking <a href='https://www.callaghaninnovation.govt.nz/grants/getting-started-grants'>HERE</a></h4>
+
+
+
+            </span> </td></tr>
+
+ <tr style='width:100% !important;'>
+           
+<td style='text-align: center;'>
+                    <div id='Explanation' style='text-align: left !important; width:100% !important'></div>
+                </td>
+            </tr>
+
+        </table>
+
+    </div>
+    
+        
+    <div id='NoQualify' style='visibility: hidden; text-align: center;'>
+
+        <table align='center' style='display:inline-block;'>
+
+
+            <tr>
+
+
+                <td style='text-align: center;'>
+                    <h1>Sorry, you don't qualify for any Grants.</h1>
+                </td>
+
+
+            </tr>
+            <tr>
+
+
+                <td style='text-align: center;'>
+                    <div style='text-align: left !important; width:100% !important'>See Callaghans Website for more information.</div>
+                </td>
+
+
+            </tr>
+
+
+
+        </table>
+
+    </div>
+
+
+</body>
+
+
+<script>
+    
+function Submit(){
+    
+    var GrantType = null;
+    var GrantAmount = 0;
+
+var YearsOperating = document.getElementById('YearsSelect').value;
+var PreviousGrant = document.getElementById('PreviousGrantSelect').value;
+var GrowthCheck = document.getElementById('GrowthCheck').value;
+var Expenditure = Number(document.getElementById('ExpenditureAmount').value.replace(/\,/g,'').replace(/\$/g,'')).toFixed(2);
+
+
+
+if(YearsOperating == 0 && PreviousGrant == 0 ){
+
+    var GrantType = 'Getting Started Grant';
+    var GrantAmount = (Expenditure/100)*40;
+
+    if(GrantAmount > 5000){
+
+        var GrantAmount = 5000;
+
+
+
+    }
+    if(GrantAmount < 0){
+
+
+
+        var GrantAmount = 0;
+    }
+
+
+        document.getElementById('GrantType').innerHTML = 'You may be eligible for a Getting Started Grant!'
+        document.getElementById('GrantAmount').innerHTML = 'Estimated Grant Amount: $ <span style="Color:#40dc61">' + GrantAmount +"</span>";
+        scrollTo ('YesQualify');
+
+        document.getElementById('YesQualify').style.visibility = 'visible';
+        return;
+
+
+    }
+
+    
+    
+    
+if(YearsOperating == 1){
+
+    
+    if(PreviousGrant == '0'){
+
+var GrantType = 'Getting Started Grant';
+    var GrantAmount = (Expenditure/100)*40;
+
+    if(GrantAmount > 5000){
+
+
+        var GrantAmount = 5000;
+
+
+
+    }
+    if(GrantAmount < 0){
+
+
+
+        var GrantAmount = 0;
+    }
+
+
+        document.getElementById('GrantType').innerHTML = 'You may be eligible for a Getting Started Grant!'
+         document.getElementById('GrantAmount').innerHTML = 'Estimated Grant Amount: $ <span style="Color:#40dc61">' + GrantAmount +"</span>";
+        scrollTo ('YesQualify');
+
+        document.getElementById('YesQualify').style.visibility = 'visible';
+        return;
+}
+    if(PreviousGrant == '2'){
+        
+       YouDontQualify(); 
+        return;
+        
+        
+    }
+    
+    
+    
+    
+    
+
+
+    }
+
+
+
+
+
+
+
+
+
+        
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    function ShowInputForm(){
+
+
+scrollTo ('DetailInput');
+
+        document.getElementById('DetailInput').style.visibility = 'visible';
+
+
+
+
+
+
+}
+    function ShowForm() {
+
+scrollTo ('EntryForm');
+
+        document.getElementById('EntryForm').style.visibility = 'visible';
+
+    }
+
+    function YouDontQualify() {
+
+        document.getElementById('NoQualify').style.visibility = 'visible';
+
+scrollTo ('NoQualify');
+
+
+    }
+    
+    
+    
+    function scrollTo (id) {
+   $('html,body').animate({
+      scrollTop: $("#"+id).offset().top }, 1000);
+}
+</script>
+
+
+
+
+
+</html>
